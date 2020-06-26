@@ -45,3 +45,11 @@ disp(mtx)
 
 fprintf('\n\nThe element x(1,1,1) of the matrix is : %f',mtx(1,1,1))
 fprintf('\n\nThe element x(1,1,2) of the matrix is : %f\n\n',mtx(1,1,2))
+
+
+#clear
+
+#fn = fopen('mtx_loop_test.txt','r');
+#output = fgetl(fn);
+#output = textscan(fn);
+#fclose(fn);
