@@ -25,7 +25,7 @@ print('\n')
 # A[:][:][0] = A[1][:][1] # Here there is a big confusion: Apparently when I set the first row (A[0][...])
 # A[:][:][2] = A[:][:][0] # It is the same as if I was doing like A[:][0][...] which doesn't make any sense
 # So I already knew that there are two different ways to represent an multi-dimensional array: A[n,n,n] or A[n][n][n]
-# And the strange thing is that only the
+# And the strange thing is that only the second one work just fine
 
 t_initial = time.time()  # I set here the initial time.
 
