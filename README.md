@@ -1,2 +1,2 @@
-# Comparing-Languages
-Compare the optimal programming language in order to solve CFD and Heat-Transfer problems
+# Comparing Languages
+Compare different programming languages performance in order to solve a simple matrix problem
