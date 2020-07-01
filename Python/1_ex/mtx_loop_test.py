@@ -48,7 +48,7 @@ print(A)
 print('\n')
 print("--- %s seconds ---\n" % (time.time() - t_initial))
 
-# Write the array to disk
+# Write the 3D array to disk
 with open('mtx_loop_test.txt', 'w') as outfile:
     # Here I'm writing the header just to sake of readability Any line starting with "#" will
     # be ignored by numpy.loadtxt

@@ -3,7 +3,7 @@ import numpy as np
 # Generate some test data
 data = np.arange(200).reshape((4, 5, 10))
 
-# Write the array to disk
+# Write the 3D array to disk
 with open('test.txt', 'w') as outfile:
     # I'm writing a header here just for the sake of readability
     # Any line starting with "#" will be ignored by numpy.loadtxt
