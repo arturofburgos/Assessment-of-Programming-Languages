@@ -29,14 +29,14 @@ print('\n')
 
 # i represents lines and j represents columns. k represents the line or column 11element11 indices
 
-def multiloop(mtx1, mtx2, z, mtx3):
+def multivec(mtx1, mtx2, z, mtx3):
 
     mtx3 = np.matmul(A,B)
 
     return mtx3
 
 t_initial = time.time()  # I set here the initial time.
-R = multiloop(A, B, n, R)
+R = multivec(A, B, n, R)
 
 print('\nThe result matrix of the multiplication is ')
 print(R)
