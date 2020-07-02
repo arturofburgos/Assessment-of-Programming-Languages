@@ -48,5 +48,5 @@ print('\n')
 print("--- %s seconds ---\n" % (time.time() - t_initial))
 
 print("\n\nAre both results equal to each other?\n")
-comparison = (R == D).all() # Haere I verify if the R matrix is equal to D matrix
+comparison = (R == D).all() # Here I verify if the R matrix is equal to D matrix
 print(comparison)
