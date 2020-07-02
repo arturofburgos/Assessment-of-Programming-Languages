@@ -23,21 +23,8 @@ R = np.zeros((n,n))
 # i represents lines and j represents columns. k represents the line or column 11element11 indices
 
 def multiloop(mtx1, mtx2, z, mtx3):
-    for i in range(z):
-        for j in range(z):
-            soma = 0
-            for k in range(z):
-                soma = soma + mtx1[i, k]*mtx2[k, j]
-                mtx3[i, j] = soma
-    # def ex1(mtx, k):
-    #   for i in range(k):
-    #       for j in range(z):
-    #           soma = 0
-    #           for k in range(z):
-    #               soma = soma + mtx1[i, k]*mtx2[k, j]
-    #               soma = soma + mtx1[i][k]*mtx2[k][j]
-    #               mtx3[i][j] = soma
 
+    mtx3 = np.matmul(A,B)
 
     return mtx3
 

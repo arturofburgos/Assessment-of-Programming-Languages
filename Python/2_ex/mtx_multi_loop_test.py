@@ -11,14 +11,21 @@ import time  # Here I'm importing this python module in order to calculate the p
 
 
 
-n = 150  # The numbers of elements in each matrix dimension
+n = 2  # The numbers of elements in each matrix dimension
 
-A = np.random.randint(150, size = (n,n))  # Here I just import numpy to create an arbitrary matrix
-B = np.random.randint(150, size = (n,n))
+A = np.random.randint(5, size = (n,n))  # Here I just import numpy to create an arbitrary matrix
+B = np.random.randint(5, size = (n,n))
 
 D = np.matmul(A,B) # Actual vectorizing function that does the same as the for loop below
 R = np.zeros((n,n))
 
+print('The matrix A is \n', A)
+print('\n')
+print('The matrix B is \n', B)
+print('\n')
+print('The matrix D is \n', D) # Print on the screen the result of the regular matmul function
+# to compare both results
+print('\n')
 
 # i represents lines and j represents columns. k represents the line or column 11element11 indices
 
@@ -44,9 +51,8 @@ def multiloop(mtx1, mtx2, z, mtx3):
 t_initial = time.time()  # I set here the initial time.
 R = multiloop(A, B, n, R)
 
+print('\nThe result matrix of the multiplication is ')
+print(R)
+
 print('\n')
 print("--- %s seconds ---\n" % (time.time() - t_initial))
-
-print("\n\nAre both results equal to each other?\n")
-comparison = (R == D).all() # Haere I verify if the R matrix is equal to D matrix
-print(comparison)
