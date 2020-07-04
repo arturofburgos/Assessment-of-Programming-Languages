@@ -11,10 +11,7 @@
 
 import time
 
-
 n = int(input("Enter the n indices: "))
-
-
 
 def recur_fibonacci(k):
     """
