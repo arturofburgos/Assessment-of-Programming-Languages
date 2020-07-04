@@ -22,6 +22,6 @@ def recur_fibonacci(k):
 initial_time = time.time()
 Fbn = recur_fibonacci(n)
 
-print("The elapsed time is: %s seconds" % (time.time()-initial_time))
-print("The correspond indices number is: ",Fbn)
+print(f"The elapsed time is: {time.time() - initial_time} seconds")
+print(f"The correspond indices number is: {Fbn}")
 
