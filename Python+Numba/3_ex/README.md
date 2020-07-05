@@ -3,10 +3,11 @@
 It is important to mention that by using the Numba Module when you set a def function and you use Numpy Module inside, there is no support. The error message is: 
 
 numba.core.errors.TypingError: Failed in nopython mode pipeline (step: nopython frontend)
-Use of unsupported NumPy function 'numpy.matmul' or unsupported use of the function.
+Untyped global name 'sum': cannot determine Numba type of <classbuiltin_function_or_method'>
 
-File "Python+Numba/2_ex/mtx_multi_vec_JIT.py", line 28:
-def multivec(mtx1, mtx2, z, mtx3):
+File "Python+Numba/3_ex/fibonacci_ite_JIT.py", line 57:
+def arrayloop_fibonacci(k,F,S):
     <source elided>
-
-    mtx3 = np.matmul(A,B)
+        F[0]=S
+        S = sum(F)
+        ^
