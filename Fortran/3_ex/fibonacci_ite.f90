@@ -10,7 +10,7 @@ program fibonacci_ite
     write(*,'(/A)')
 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !Variable iterative fibonacci  --> Worse performance, why?
+    !Variable iterative fibonacci 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     A = 0 
@@ -29,12 +29,12 @@ program fibonacci_ite
 
     print*,'Variable iterative fibonacci'
     print*, 'The number is: ',S1
-    print '("Elapsed time is: ",f6.5," seconds")', finish1 - start1
+    print*, finish1 - start1
 
     write(*,'(/A)')
 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !Array iterative fibonacci  --> Worse performance, why?
+    !Array iterative fibonacci 
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     C(0) = 0
@@ -45,7 +45,7 @@ program fibonacci_ite
     !print*, C !--> Just to be more clear
 
     call cpu_time(start2)
-    do i = 1,10
+    do i = 1,45
 
         C(0) = S2
         S2 = sum(C)
