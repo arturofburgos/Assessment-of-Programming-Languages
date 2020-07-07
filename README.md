@@ -43,11 +43,11 @@ Fibonacci's Sequence is the infinite sequence of numbers that is governed by the
     where n is greater than 1 and belongs to the Integer Set
 
  
-The main purpose here is to calculate the execution time of the program on finding the Fibonacci's number according to its $n$ indices. However for this third test, we used loops and recursive functions
+The main purpose here is to calculate the execution time of the program on finding the Fibonacci's number according to its n indices. However for this third test, we used loops and recursive functions.
 
 ## Linear System
 
-As the last test, it is proposed the resolution of a linear system based on the following problem. It consists of a flat surface with 9 nodes, and the contour temperatures are known. It is easy to understand that each node temperature must be equal to the sum's average of the adjacent temperatures..
+As the last test, it is proposed the resolution of a linear system based on the following problem. It consists of a flat surface with 9 nodes, and the contour temperatures are known. It is easy to understand that each node temperature must be equal to the sum's average of the adjacent temperatures.
 
 
 ![](images/grid_surface.png)
