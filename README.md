@@ -1,2 +1,3 @@
 # Comparing Languages
-Compare different programming languages performance in order to solve a simple matrix problem
+
+Establishing efficiency evaluations and comparisons of different \linebreak programming languages is not a trivial task.
