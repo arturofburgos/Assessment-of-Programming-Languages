@@ -49,5 +49,5 @@ The main purpose here is to calculate the execution time of the program on findi
 
 As the last test, it is proposed the resolution of a linear system based on the following problem. It consists of a flat surface with 9 nodes, and the contour temperatures are known. It is easy to understand that each node temperature must be equal to the sum's average of the adjacent temperatures.
 
-<img src="grid_suface.png" width = "0.75">
+
 ![](images/grid_surface.png)
