@@ -49,51 +49,51 @@ A = [
 # Here I set the b matrix     
 b = [-50 -50 -50 -50 -50 -150 0 0 0 0 0 -100 0 0 0 0 0 -100 0 0 0 0 0 -100 0 0 0 0 0 -100 -50 -50 -50 -50 -50 -150]
 
+# Initial x_k and x_k1 value
+x_k = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+
+x_k1 = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+
+# Here I set the tolerance
+e = 1e-10
+
+n = length(b)
+
+# Here I set the iterations
+iterations = 0
 
 
-function oi(A,b)
+# Here I set the error based in the Infinite norm
+#erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same result? 
+erro = norm((x_k1 - x_k),Inf);
 
-    # Initial x_k and x_k1 value
-    x_k = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
-
-    x_k1 = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
-
-    # Here I set the tolerance
-    e = 1e-10
-
-    n = length(b)
-
-    # Here I set the iterations
-    iterations = 0
-
-
-    # Here I set the error based in the Infinite norm
-    #erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same result? 
-    erro = norm((x_k1 - x_k),Inf)
-
-
-    while erro > e
+while erro > e #|| iterations <100
+  for i = 1:n
     
-        for i = 1:n
-        
-            x_k1[i] = b[i];
-        
-            for j = 1:i-1
-        
-                x_k1[i] = x_k1[i] - A[i,j]*x_k[j];
-        
-            end
-                
-            for j = i+1:n
-        
-                x_k1[i] = x_k1[i] - A[i,j]*x_k[j];
-            end
-            x_k1[i] = x_k1[i]/A[i,i];
-        end
-        
-        erro = norm((x_k1 - x_k),Inf)
-        x_k = x_k1
+    x_k1[i] = b[i];
+    
+    for j = 1:i-1
+
+      x_k1[i] =  x_k1[i] - A[i,j]*x_k[j];
+    
     end
-    return x_k1
+    
+    for j = i+1:n
+      
+      x_k1[i] =  x_k1[i] - A[i,j]*x_k[j];
+      
+    end
+  
+    x_k1[i] = x_k1[i]/A[i,i];
+  
+  end
+ 
+  erro = norm((x_k1 - x_k),Inf);
+  x_k = x_k1;
+
+
 end
-oi(A,b)
+
+
+
+    
