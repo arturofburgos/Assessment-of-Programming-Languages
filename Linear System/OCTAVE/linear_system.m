@@ -5,7 +5,7 @@
 clear all;
 clc;
 
-# Forth exercise: Solving a Linear System --> ax = b
+# Fourth exercise: Solving a Linear System --> ax = b
 
 # Here I first conditions
 
