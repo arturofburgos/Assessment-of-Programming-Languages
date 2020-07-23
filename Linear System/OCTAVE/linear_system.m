@@ -7,7 +7,7 @@ clc;
 
 # Fourth exercise: Solving a Linear System --> ax = b
 
-# Here I first conditions
+# Here I first set conditions
 
 clear all
 clc
