@@ -8,9 +8,12 @@
 # Here I first set conditions
 
 import numpy as np
+from numpy import linalg as lin
+np.seterr(divide='ignore', invalid='ignore')
+
 print('\n')
 
-n = 36
+n = 9
 K = np.sqrt(n)
 k = int(K)
 
@@ -18,28 +21,28 @@ k = int(K)
 
 # Initial x_k and x_k1 value
 
-x_k = np.zeros((1,n))
-x_k1 = np.ones((1,n))
+x_k = np.zeros(n)
+x_k1 = np.ones(n)
 
 
 
 # Here I set the Matrix
 
-A = np.zeros((n,n))
+a = np.zeros((n,n))
 
 
 for i in range(n):
     for j in range(n):
         if i == j:
-            A[i,j] = -4
+            a[i,j] = -4
         elif i == j-3 or i ==j+3:
-            A[i,j] = 1
+            a[i,j] = 1
         elif ((i+1) % 3 != 0 and i == j-1) or ((i+1) % 3 != 1 and i == j+1): # (i+1) because in Python we start from 0
-            A[i,j] = 1
+            a[i,j] = 1
 
-print('The coefficient Matrix is:')
-print(A)
-print('\n')
+#print('The coefficient Matrix is:')
+#print(a)
+#print('\n')
         
 
 
@@ -56,7 +59,7 @@ for i in range(k,n-k):
     if (i+1)%6 != 0: # (i+1) because in Python we start from 0
         b[i] = 0
     else:
-        b[i] = 100
+        b[i] = -100
 
 for i in range(n-k,n):
     if i < n-1: # (k-1) because in Python we start from 0
@@ -64,20 +67,44 @@ for i in range(n-k,n):
     else:
         b[i] = -150
 
-print('The result Matrix is:')
+#print('The result Matrix is:')
 print(b)
-print('\n')
+#print('\n')
 
 
 
 # Here I set the tolerance
-e = 1e-10
+e = 0.0000001
 # Here I set the iterations
 ite = 0
   
 
 
 # Here I set the error based in the Infinite norm  
-erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same final result?
+erro = (x_k1 - x_k)/x_k1
+
+while ite<31:
+    for i in range(0,n):
+        
+        x_k1[i] = b[i]
+
+        for j in range(0,i-1):
+
+            x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
+
+        for j in range(i+1,n):
+
+            x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
+    
+        x_k1[i] =  x_k1[i]/ a[i,i]
+
+    erro = (x_k1 - x_k)/x_k1
+    x_k = x_k1
+    ite = ite + 1
 
 
+#print('The number of iterations is: ')
+#print(ite)
+
+print('The solution is:')
+print(x_k1)

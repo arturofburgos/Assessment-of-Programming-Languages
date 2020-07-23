@@ -11,7 +11,7 @@ clc;
 
 clear all
 clc
-n = 36
+n = 9
 k = sqrt(n)
 a = zeros(n,n);
 b = zeros(1,n);
