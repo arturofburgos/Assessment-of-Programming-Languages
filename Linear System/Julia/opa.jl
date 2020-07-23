@@ -2,6 +2,11 @@
 # Professor: João Rodrigo Andrade
 # Federal University of Uberlândia - UFU, Fluid Mechanics Laboratory - MFLab, Block 5P, Uberlândia, MG, Brazil
 
+
+# Fourth exercise: Solving a Linear System --> ax = b
+
+
+
 using Printf # Just the same as import a module
 using Statistics
 using LinearAlgebra # Import this module to use the norm function
