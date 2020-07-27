@@ -70,7 +70,7 @@ x_k1 = [1 1 1 1 1 1 ...
         1 1 1 1 1 1];
 
 # Here I set the tolerance
-e = 1e-10;
+e = 1e-3;
 
 n = length(b); 
 
@@ -88,7 +88,8 @@ while erro > e #|| iterations <100
     
     x_k1(i) = b(i);
     
-    for j = 1:i-1
+    for j = 1:i-1 # Here there is a problem, because if i = 0 ->  this for initilize with 1 and go to zero, the thing is 
+    # with MATLAB there is no problem with the compilation 
 
       x_k1(i) =  x_k1(i) - A(i,j)*x_k(j);
     
@@ -113,7 +114,7 @@ toc
 fprintf("the number of iterations of the system is: ");
 disp(ite);
 disp(x_k1);
-
+disp(erro);
 
 # Here I set the nodes temperature output format
 
