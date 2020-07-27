@@ -87,7 +87,7 @@ ite = 0;
   
 
 # Here I set the error based in the Infinite norm  
-#erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same final result? 
+#erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same final result? It is something specific with MATLAB
 erro = norm((x_k1 - x_k),inf);
   
 tic
