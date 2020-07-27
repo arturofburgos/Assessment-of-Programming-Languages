@@ -8,7 +8,7 @@
 # Here I first set conditions
 
 import numpy as np
-from numpy import linalg as lin
+from numpy import linalg as La
 np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
@@ -40,9 +40,10 @@ for i in range(n):
         elif ((i+1) % 3 != 0 and i == j-1) or ((i+1) % 3 != 1 and i == j+1): # (i+1) because in Python we start from 0
             a[i,j] = 1
 
-#print('The coefficient Matrix is:')
-#print(a)
-#print('\n')
+
+print('The coefficient Matrix is:')
+print(a)
+print('\n')
         
 
 
@@ -67,44 +68,55 @@ for i in range(n-k,n):
     else:
         b[i] = -150
 
-#print('The result Matrix is:')
+print('The result Matrix is:')
 print(b)
-#print('\n')
+print('\n')
 
 
 
 # Here I set the tolerance
-e = 0.0000001
+tolerance = 1e-9
 # Here I set the iterations
 ite = 0
   
 
 
 # Here I set the error based in the Infinite norm  
-erro = (x_k1 - x_k)/x_k1
+erro = La.norm((x_k1 - x_k),np.inf)
+#erro = (x_k1 - x_k)/x_k1
 
-while ite<31:
+
+while (erro > tolerance): #
     for i in range(0,n):
         
         x_k1[i] = b[i]
 
-        for j in range(0,i-1):
+        for j in range(0,n):
+            if j!=i:
+                x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
 
-            x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
 
-        for j in range(i+1,n):
-
-            x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
     
         x_k1[i] =  x_k1[i]/ a[i,i]
 
-    erro = (x_k1 - x_k)/x_k1
-    x_k = x_k1
+
+    #erro = (x_k1 - x_k)/x_k1
+    erro = La.norm((x_k1 - x_k),np.inf)
+
+    x_k = x_k1.copy()
+    #x_k[:] = x_k1[:] # -> the same as above
+
     ite = ite + 1
 
 
-#print('The number of iterations is: ')
-#print(ite)
+print('The number of iterations is: ')
+print(ite)
+print('\n')
 
 print('The solution is:')
 print(x_k1)
+print('\n')
+
+print('Note that now the error is not an array anymore, but is normalized :')
+print(erro)
+print('\n')
