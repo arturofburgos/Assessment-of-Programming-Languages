@@ -88,7 +88,7 @@ ite = 0;
 
 # Here I set the error based in the Infinite norm  
 #erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same final result? 
-erro = norm((x_k1 - x_k),Inf);
+erro = norm((x_k1 - x_k),inf);
   
 tic
 while erro > e #|| iterations <100
@@ -96,23 +96,20 @@ while erro > e #|| iterations <100
     
     x_k1(i) = b(i);
     
-    for j = 1:i-1
-
-      x_k1(i) =  x_k1(i) - a(i,j)*x_k(j);
+    for j = 1:n
+      if j!=i
     
+        x_k1(i) =  x_k1(i) - a(i,j)*x_k(j);
+        
+      endif
     endfor
     
-    for j = i+1:n
-      
-      x_k1(i) =  x_k1(i) - a(i,j)*x_k(j);
-      
-    endfor
-  
+ 
     x_k1(i) = x_k1(i)/a(i,i);
   
   endfor
  
-  erro = norm((x_k1 - x_k),Inf);
+  erro = norm((x_k1 - x_k),inf);
   x_k = x_k1;
   ite = ite +1;
 
