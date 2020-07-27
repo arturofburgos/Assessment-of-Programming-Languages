@@ -46,7 +46,6 @@ tolerance = 0.000000001
 ite = 0
   
 
-
 # Here I set the error based in the Infinite norm  
 erro = np.ones(9)
 erro = lin.norm((x_k1 - x_k),np.inf)
