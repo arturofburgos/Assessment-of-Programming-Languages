@@ -28,10 +28,17 @@ u[int(0.5/dx):int(1/dx+1)] = 2
 un = np.ones(nx) # Auxiliar array 
 
 
-fig , ax = plt.subplots(figsize=(10 , 7),nrows=2)
+fig , ax = plt.subplots(figsize=(10 , 5),ncols=2)
 
 ax[0].set_title('Wave velocity through time passing in a 1-D grid ')
 ax[1].set_title('Comparing the wave in first and the last timestep')
+
+ax[0].set_xlabel('Length of the grid')
+ax[1].set_xlabel('Length of the grid')
+
+ax[0].set_ylabel('Velocity u')
+ax[1].set_ylabel('Velocity u')
+
 ax[0].plot(np.linspace(0,5,nx),u)
 ax[1].plot(np.linspace(0,5,nx),u)
 
@@ -42,7 +49,7 @@ for n in range(1,nt):
     for i in range(1,nx):
         u[i] = un[i] - c * (dt/dx) * (un[i]-un[i-1])
     
-    ax[0].plot(np.linspace(0,5,nx),u) # This shows what happens through time
+    ax[0].plot(np.linspace(0,5,nx),u) # This shows what happens through time -> first plot only
 
 ax[1].plot(np.linspace(0,5,nx),u) 
 plt.show()
