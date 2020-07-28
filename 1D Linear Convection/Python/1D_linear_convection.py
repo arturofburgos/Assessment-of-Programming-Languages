@@ -40,7 +40,7 @@ ax[0].set_ylabel('Velocity u')
 ax[1].set_ylabel('Velocity u')
 
 ax[0].plot(np.linspace(0,5,nx),u)
-ax[1].plot(np.linspace(0,5,nx),u)
+ax[1].plot(np.linspace(0,5,nx),u,label='First timestep')
 
 for n in range(1,nt):
     un[:] = u[:]
@@ -51,7 +51,8 @@ for n in range(1,nt):
     
     ax[0].plot(np.linspace(0,5,nx),u) # This shows what happens through time -> first plot only
 
-ax[1].plot(np.linspace(0,5,nx),u) 
+ax[1].plot(np.linspace(0,5,nx),u,label='Last timestep') 
+ax[1].legend()
 plt.show()
 
 print('The velocity last timestep velocity values are: ')
