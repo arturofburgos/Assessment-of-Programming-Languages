@@ -25,7 +25,7 @@ u = np.ones(nx)
 
 u[int(0.5/dx):int(1/dx+1)] = 2
 
-un = np.ones(nx)
+un = np.ones(nx) # Auxiliar array 
 
 
 fig , ax = plt.subplots(figsize=(10 , 7),nrows=2)
