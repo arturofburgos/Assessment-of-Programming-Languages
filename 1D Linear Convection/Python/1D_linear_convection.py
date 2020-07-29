@@ -28,10 +28,10 @@ u[int(0.5/dx):int(1/dx+1)] = 2
 un = np.ones(nx) # Auxiliar array 
 
 
-fig , ax = plt.subplots(figsize=(10 , 5),ncols=2)
+fig , ax = plt.subplots(figsize=(15 , 5),ncols=2)
 
 ax[0].set_title('Wave velocity through time passing in a 1-D grid ')
-ax[1].set_title('Comparing the wave in first and the last timestep')
+ax[1].set_title('Comparing the wave in the first and the last timestep')
 
 ax[0].set_xlabel('Length of the grid')
 ax[1].set_xlabel('Length of the grid')
