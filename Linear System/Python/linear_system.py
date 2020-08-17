@@ -9,6 +9,7 @@
 
 import numpy as np
 from numpy import linalg as La
+import time
 np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
@@ -16,14 +17,6 @@ print('\n')
 n = 9
 K = np.sqrt(n)
 k = int(K)
-
-
-
-# Initial x_k and x_k1 value
-
-x_k = np.zeros(n)
-x_k1 = np.ones(n)
-
 
 
 # Here I set the Matrix
@@ -45,7 +38,6 @@ print('The coefficient Matrix is:')
 print(a)
 print('\n')
         
-
 
 b = np.zeros(n)
 
@@ -74,49 +66,67 @@ print('\n')
 
 
 
-# Here I set the tolerance
-tolerance = 1e-9
-# Here I set the iterations
-ite = 0
+def linearsystem(coeff,resul,size):
+
+    # Initial x_k and x_k1 value
+
+    x_k = np.zeros(size)
+    x_k1 = np.ones(size)
+
+    # Here I set the tolerance
+    tolerance = 1e-9
+    # Here I set the iterations
+    ite = 0
   
 
+    # Here I set the error based in the Infinite norm  
+    erro = La.norm((x_k1 - x_k),np.inf)
+    #erro = (x_k1 - x_k)/x_k1
 
-# Here I set the error based in the Infinite norm  
-erro = La.norm((x_k1 - x_k),np.inf)
-#erro = (x_k1 - x_k)/x_k1
 
-
-while (erro > tolerance): #
-    for i in range(0,n):
+    while (erro > tolerance): #
+        for i in range(0,size):
         
-        x_k1[i] = b[i]
+            x_k1[i] = resul[i]
 
-        for j in range(0,n):
-            if j!=i:
-                x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
+            for j in range(0,n):
+                if j!=i:
+                    x_k1[i] =  x_k1[i] - coeff[i,j]*x_k[j]
 
 
     
-        x_k1[i] =  x_k1[i]/ a[i,i]
+            x_k1[i] =  x_k1[i]/ coeff[i,i]
 
 
-    #erro = (x_k1 - x_k)/x_k1
-    erro = La.norm((x_k1 - x_k),np.inf)
+        #erro = (x_k1 - x_k)/x_k1
+        erro = La.norm((x_k1 - x_k),np.inf)
 
-    x_k = x_k1.copy()
-    #x_k[:] = x_k1[:] # -> the same as above
+        x_k = x_k1.copy()
+        #x_k[:] = x_k1[:] # -> the same as above
 
-    ite = ite + 1
+        ite = ite + 1
+
+    
+
+    print('The number of iterations is: ')
+    print(ite)
+    print('\n')
+
+    print('Note that now the error is not an array anymore, but is normalized :')
+    print(erro)
+    print('\n')
+
+    return x_k1
 
 
-print('The number of iterations is: ')
-print(ite)
-print('\n')
+t_initial = time.time()
+res = linearsystem(a,b,n)
+t_final = time.time()
+
 
 print('The solution is:')
-print(x_k1)
+print(res)
 print('\n')
 
-print('Note that now the error is not an array anymore, but is normalized :')
-print(erro)
-print('\n')
+
+print("\n\n--- %s seconds ---\n" % (t_final - t_initial))
