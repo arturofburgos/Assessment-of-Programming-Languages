@@ -9,13 +9,17 @@ program teste
 
 
     implicit none !To avoid variable definition problems, checking if they are correctly defined
-    integer :: i, j
+    integer :: i, j, k, n ! = 9
     real :: soma
-    real, DIMENSION(9,9) :: mtx_a
-    real, DIMENSION(1,9) :: mtx_b
-    DOUBLE PRECISION :: start, finish
+    
+    !n = 9 
     
 
+    real, DIMENSION(9,9) :: mtx_a
+    real, DIMENSION(9) :: mtx_b
+    DOUBLE PRECISION :: start, finish
+    
+    k = sqrt(real(9))
     
 
     call cpu_time(start)
@@ -52,14 +56,28 @@ program teste
 
     do i = 1,9
 
-        write(*,1) mtx_a(i,:)
-        1 format(9f5.0)
+        write(*,1) int(mtx_a(i,:))
+        1 format(9i3)
+        !write(*,1) mtx_a(i,:)
+        !1 format(16f5.0)
         
     end do
 
     ! Set the B matrix
 
-    
+    do i = 1,k
+        if (i<k) then
+
+            mtx_b(i) = -50 
+        
+        else
+
+            mtx_b(i) = -150
+        
+        endif
+    end do
+
+
 
 
 
