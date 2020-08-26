@@ -12,7 +12,6 @@ program linear_system_test
     
 
     integer :: i, j, k, n, ite
-    
     real, DIMENSION(:,:), ALLOCATABLE :: mtx_a
     real, DIMENSION(:), ALLOCATABLE :: mtx_b
     DOUBLE PRECISION :: start, finish
