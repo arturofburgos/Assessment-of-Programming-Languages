@@ -13,9 +13,11 @@ program linear_system
     integer :: i, j, k, n, ite
     real, DIMENSION(:), ALLOCATABLE :: mtx_b
     real, DIMENSION(:,:), ALLOCATABLE :: mtx_a
-    
+    DOUBLE PRECISION :: start, finish
+    DOUBLE PRECISION :: erro, tol
+    DOUBLE PRECISION, DIMENSION(:), ALLOCATABLE :: x_k, x_k1
 
-    n = 9
+    n = 400
     k = int(SQRT(real(n)))
 
     ALLOCATE (mtx_a(n,n))
@@ -45,21 +47,6 @@ program linear_system
             
             end if
         end do
-    end do
-
-
-    ! Show Matrix A in the output
-
-    print*, 'The matrix A is: '
-    write(*,'(/A)')
-
-    do i = 1,n
-
-        write(*,1) int(mtx_a(i,:))
-        1 format(9i3)
-        !write(*,1) mtx_a(i,:)
-        !1 format(16f5.0)
-        
     end do
 
 
@@ -101,26 +88,65 @@ program linear_system
         endif
     end do
     
-    write(*,'(/A)')
-
-    ! Show Matrix A in the output
-
-    print*, 'The matrix B is: '
-    write(*,'(/A)')
+    ALLOCATE (x_k(n))
+    ALLOCATE (x_k1(n))
 
 
-    write(*,2) int(mtx_b(:))
-    2 format(9i5)
+    x_k(:) = 0
+    x_k1(:) = 1
 
 
+    erro = norma(x_k1,x_k)
+    tol = 1e-9
+    ite = 0
 
 
+    call cpu_time(start)
+    do while (erro > tol)
+
+        do i = 1,n
+
+            x_k1(i) = mtx_b(i)
+
+            do j = 1,n
+                if (j/=i) then
+
+                    x_k1(i) = x_k1(i) - mtx_a(i,j)*x_k(j)
+
+                endif
+            end do
+
+            x_k1(i) = x_k1(i)/mtx_a(i,i)
+
+        end do
+
+        erro = norma(x_k1,x_k)
+        x_k = x_k1
+        ite = ite + 1
+
+    end do
+    call cpu_time(finish)
+
+    print *,'Elapsed time is:',finish - start
+    print *, 'Solution: '
+    print *, x_k1
+    print *, 'Iterations: ',ite
 
 
+    contains
+    
+    function norma(vec1,vec2) result(y)
 
+        implicit none
 
+        
+        DOUBLE PRECISION, DIMENSION(:), ALLOCATABLE :: vec1, vec2
+        DOUBLE PRECISION :: y
 
+        
+        y = maxval(ABS(vec1 - vec2))
 
+    end function norma 
 
 
 end program linear_system
