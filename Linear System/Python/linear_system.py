@@ -14,7 +14,7 @@ np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
 
-n = 400
+n = 36
 K = np.sqrt(n)
 k = int(K)
 
