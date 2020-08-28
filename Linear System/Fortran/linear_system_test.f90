@@ -26,7 +26,7 @@ program linear_system_test
     ALLOCATE (mtx_a(n,n))
     ALLOCATE (mtx_b(n))
 
-    call cpu_time(start)
+    
 
     ! Set the A matrix
 
