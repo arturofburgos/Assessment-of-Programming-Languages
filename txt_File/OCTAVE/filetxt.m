@@ -3,7 +3,7 @@
 # Federal University of Uberlândia - UFU, Fluid Mechanics Laboratory
 # MFLab, Block 5P, Uberlândia, MG, Brazil
 
-# First exercise: Consider an arbitrary Matrix NxNx3 - by a common loop
+# First exercise:  txt File
 
 clear;
 clc;
