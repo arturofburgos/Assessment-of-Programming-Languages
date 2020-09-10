@@ -11,16 +11,27 @@ clc;
 x = 1:10:100;
 
 y = cos(x);
-tic
+
+tic #-----------------------------------------------------------------------
+
 fid = fopen("/home/arturo/Desktop/IC/Comparing-Languages/txt_File/OCTAVE/...
 test.txt","w");
 for i = 1:length(x)
+  
   fprintf(fid, "%d \t %d\n", x(i),y(i));
   
 endfor
+
+for i = 1:length(x)
+  
+  fprintf(fid, "%d ", x(i));
+  
+endfor
+
 fdisp(fid,"\n");
 for i = 1:length(y)
   fprintf(fid, "%d ", y(i));
 endfor
 fclose(fid);
-toc
+
+toc #-----------------------------------------------------------------------
