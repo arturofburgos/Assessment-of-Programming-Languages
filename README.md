@@ -1,16 +1,5 @@
 # Assessment of Programming Languages for Computational Numerical Dynamics
 
-<details>
-<summary>Click for GitHub Stats</summary>
-
-<p align="center">
-    <img alt = "GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=arturofburgos&show_icons=true&hide=issues&icon_color=000000&hide_border=true&title_color=5391FE&text_color=555">
-    <br>
-    <img alt = "Top Language" src="https://github-readme-stats.vercel.app/api/top-langs/?username=arturofburgos&hide=html,&hide_border=true&title_color=5391FE&text_color=555"
-</p>
-
-
-
 Establishing efficiency evaluations and comparisons of different programming languages is not a trivial task.
 
 The comparisons proposed in the present work address routines usually applied in CFD algorithms, i.e. solving system of linear equations, and changing vector element positions. The tests are Copying Arrays, Matrix Multiplication, Fibonacci's Sequence and solve a Linear System.
@@ -62,6 +51,4 @@ As the last test, it is proposed the resolution of a linear system based on the 
 
 
 ![](Images/grid_surface.png)
-
-
 
