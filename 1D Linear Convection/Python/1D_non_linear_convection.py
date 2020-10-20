@@ -42,19 +42,24 @@ ax[1].set_ylabel('Velocity u')
 ax[0].plot(np.linspace(0,2,nx),u)
 ax[1].plot(np.linspace(0,2,nx),u,label='First timestep')
 
+u_teste = np.zeros((41,41))
+
 for n in range(1,nt):
     un[:] = u[:]
     #un = u.copy()
-
-    for i in range(1,nx):
-        #u[i] = un[i] - c * (dt/dx) * (un[i]-un[i-1]) # Linear 
-        u[i] = un[i] - un[i] * (dt/dx) * (un[i]-un[i-1]) # Non-Linear
+    for j in range(1,nx ):
+        for i in range(1,nx):
+            #u[i] = un[i] - c * (dt/dx) * (un[i]-un[i-1]) # Linear 
+            u[i] = un[i] - un[i] * (dt/dx) * (un[i]-un[i-1]) # Non-Linear
+            u_teste[j,i] = u[i]
+        ax[0].plot(np.linspace(0,2,nx),u) # This shows what happens through time -> first plot only
     
-    ax[0].plot(np.linspace(0,2,nx),u) # This shows what happens through time -> first plot only
 
-ax[1].plot(np.linspace(0,2,nx),u,label='Last timestep') 
+ax[1].plot(np.linspace(0,2,nx),u[:],label='Last timestep') 
 ax[1].legend()
 plt.show()
 
 print('The velocity last timestep velocity values are: ')
 print(u)    
+
+print(u_teste[1,:])
