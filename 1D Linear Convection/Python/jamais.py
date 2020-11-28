@@ -1,8 +1,7 @@
-#=============================================================================================================
 # Undergraduate Student: Arturo Burgos
 # Professor: João Rodrigo Andrade
 # Federal University of Uberlândia - UFU, Fluid Mechanics Laboratory - MFLab, Block 5P, Uberlândia, MG, Brazil
-#=============================================================================================================
+
 
 # Fifth exercise: 1D Linear Convection
 
@@ -12,12 +11,12 @@ import matplotlib.pyplot as plt
 
 # First define the:
 
-X = 5 # Length of the grid
+X = 2 # Length of the grid
 nx = 41 # Number of nodes
 dx = X/(nx-1) # The distance between consecutive nodes
 
-nt = 10 # The number of timesteps I want to calculate
-dt = 0.05 # The amount of time each timestep cover
+nt = 25 # The number of timesteps I want to calculate
+dt = 0.025 # The amount of time each timestep cover
 
 c = 1 # Wavespeed
 
@@ -40,36 +39,26 @@ ax[1].set_xlabel('Length of the grid')
 ax[0].set_ylabel('Velocity u')
 ax[1].set_ylabel('Velocity u')
 
-ax[0].plot(np.linspace(0,5,nx),u)
-ax[1].plot(np.linspace(0,5,nx),u,label='First timestep')
+ax[0].plot(np.linspace(0,2,nx),u)
+ax[1].plot(np.linspace(0,2,nx),u,label='First timestep')
 
-u_teste = np.ones((nt,nx))
-u_teste[0,:] = u
 
 
 for n in range(1,nt):
     un[:] = u[:]
     #un = u.copy()
-
+    
     for i in range(1,nx):
-        u[i] = un[i] - c * (dt/dx) * (un[i]-un[i-1]) # Linear 
-        u_teste[n,i] = u[i].copy()
+        #u[i] = un[i] - c * (dt/dx) * (un[i]-un[i-1]) # Linear 
+        u[i] = un[i] - un[i] * (dt/dx) * (un[i]-un[i-1]) # Non-Linear
     
-    ax[0].plot(np.linspace(0,5,nx),u) # This shows what happens through time -> first plot only
-    print(u)
+    ax[0].plot(np.linspace(0,2,nx),u) # This shows what happens through time -> first plot only
     
 
-ax[1].plot(np.linspace(0,5,nx),u,label='Last timestep') 
+ax[1].plot(np.linspace(0,2,nx),u[:],label='Last timestep') 
 ax[1].legend()
 plt.show()
 
 print('The velocity last timestep velocity values are: ')
 print(u)    
 
-
-print(u_teste[0,:])
-
-for i in range(10):
-
-    plt.plot(np.linspace(0,5,nx),u_teste[i,:])
-    plt.show()
