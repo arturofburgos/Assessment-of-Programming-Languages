@@ -22,7 +22,7 @@ tic             ;
 %--------------------------------------------------------------------------
 % FILE'S NAME TO SAVE
 %--------------------------------------------------------------------------
-SIMPATH.savefile = '../Figures/teste';
+SIMPATH.savefile = '../Figures/1st_loop_n3000_matlab1000';
 FIGOPT.figformat = 'pdf'; % Save figure to specific file format: pdf, png, jpeg
 %--------------------------------------------------------------------------
 
@@ -30,11 +30,11 @@ FIGOPT.figformat = 'pdf'; % Save figure to specific file format: pdf, png, jpeg
 % FILE`S PATH SETUP
 %--------------------------------------------------------------------------
 n = 1;
-SIMPATH.file(n).path = '../Data/teste.txt'; n=n+1; % Diretorio para acessar
-SIMPATH.file(n).path = '../Data/teste.txt'; n=n+1; % Diretorio para acessar
-SIMPATH.file(n).path = '../Data/teste.txt'; n=n+1; % Diretorio para acessar
-SIMPATH.file(n).path = '../Data/teste.txt'; n=n+1; % Diretorio para acessar
-SIMPATH.file(n).path = '../Data/teste.txt'; n=n+1; % Diretorio para acessar
+SIMPATH.file(n).path = '../Data/1st_loop_n3000_matlab1000.txt'; n=n+1; % Diretorio para acessar
+SIMPATH.file(n).path = '../Data/1st_loop_n3000_matlab1000.txt'; n=n+1; % Diretorio para acessar
+SIMPATH.file(n).path = '../Data/1st_loop_n3000_matlab1000.txt'; n=n+1; % Diretorio para acessar
+SIMPATH.file(n).path = '../Data/1st_loop_n3000_matlab1000.txt'; n=n+1; % Diretorio para acessar
+SIMPATH.file(n).path = '../Data/1st_loop_n3000_matlab1000.txt'; n=n+1; % Diretorio para acessar
 %--------------------------------------------------------------------------
 
 %--------------------------------------------------------------------------
