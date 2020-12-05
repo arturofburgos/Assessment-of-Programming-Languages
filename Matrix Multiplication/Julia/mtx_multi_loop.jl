@@ -43,3 +43,4 @@ R = multiloop(A,B,R);
 println("\n")
 
 @time @CPUtime multiloop(A,B,R)
+# Test done!

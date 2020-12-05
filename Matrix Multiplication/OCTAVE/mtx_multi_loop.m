@@ -6,8 +6,8 @@
 # Second exercise: Consider two arbitrary Matrix NxN
 clear all;
 clc;
-A = randi(100,100);
-B = randi(100,100);
+A = randi(250,250);
+B = randi(250,250);
 
 # C = A.*B this multiplies point by point 
 # Is the same as for i = 1:2 for j = 1:2 F(i,j) = A(i,j)*B(i,j)
@@ -19,10 +19,10 @@ B = randi(100,100);
 
 function z = multi_loop(x,y)
   
-for i = 1:100
-    for j = 1:100
+for i = 1:250
+    for j = 1:250
     soma = 0;
-      for k = 1:100
+      for k = 1:250
         soma = soma + x(i,k)*y(k,j) ;
       endfor
     z(i,j) = soma;
