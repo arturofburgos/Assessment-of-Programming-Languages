@@ -23,7 +23,7 @@ y = numpy.cos(x)
 
 def writetxt(a1,a2):
 
-    z = open('/home/arturo/Desktop/IC/Comparing-Languages/txt_File/Python/teste.txt',"w")
+    z = open('/home/arturo/Desktop/GitHub/IC/Comparing-Languages/txt_File/Python/teste.txt',"w")
     z.write("X")
     z.write('\n')
 
