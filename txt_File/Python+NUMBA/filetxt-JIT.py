@@ -1,11 +1,12 @@
+#=============================================================================================================
 # Undergraduate Student: Arturo Burgos
 # Professor: João Rodrigo Andrade
 # Federal University of Uberlândia - UFU, Fluid Mechanics Laboratory - MFLab, Block 5P, Uberlândia, MG, Brazil
-
+#=============================================================================================================
 
 # Fifth exercise: txt File 
 
-
+# Apparently it is not possible to use JIT at the same time as file function
 
 import numpy  
 import time
@@ -24,7 +25,7 @@ y = numpy.cos(x)
 @jit(nopython=True) # Set "nopython" mode for best performance, equivalent to @njit
 def writetxt(a1,a2):
 
-    z = open('/home/arturo/Desktop/IC/Comparing-Languages/txt_File/Python+NUMBA/teste-JIT.txt',"w")
+    z = open('/home/arturo/Desktop/GitHub/IC/Comparing-Languages/txt_File/Python+NUMBA/teste-JIT.txt',"w")
     z.write("X")
     z.write('\n')
 

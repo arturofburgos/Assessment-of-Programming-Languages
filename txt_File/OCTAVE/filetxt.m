@@ -14,13 +14,13 @@ y = cos(x);
 
 tic #-----------------------------------------------------------------------
 
-fid = fopen("/home/arturo/Desktop/IC/Comparing-Languages/txt_File/OCTAVE/...
+fid = fopen("/home/arturo/Desktop/GitHub/IC/Comparing-Languages/txt_File/OCTAVE/\
 test.txt","w");
-#for i = 1:length(x)
+for i = 1:length(x)
   
-  #fprintf(fid, "%d \t %d\n", x(i),y(i));
+  fprintf(fid, "%d \t %d\n", x(i),y(i));
   
-#endfor
+endfor
 
 for i = 1:length(x)
   
@@ -31,7 +31,9 @@ endfor
 fdisp(fid,"\n");
 
 for i = 1:length(y)
+  
   fprintf(fid, "%d ", y(i));
+
 endfor
 fclose(fid);
 

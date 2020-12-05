@@ -18,4 +18,18 @@ println(x)
 
 println(y)
 
+open("teste.txt","w") do io
+
+    for i in x
+        println(io,i)
+    end
+
+    for i in y
+        println(io,i)
+    end
+    
+end
+
+
+
 
