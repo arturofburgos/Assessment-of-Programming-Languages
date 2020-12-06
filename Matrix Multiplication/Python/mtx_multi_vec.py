@@ -11,7 +11,7 @@ import time  # Here I'm importing this python module in order to calculate the p
 
 
 
-n = 150  # The numbers of elements in each matrix dimension
+n = 1500 # The numbers of elements in each matrix dimension
 
 A = np.random.randint(150, size = (n,n))  # Here I just import numpy to create an arbitrary matrix
 B = np.random.randint(150, size = (n,n))

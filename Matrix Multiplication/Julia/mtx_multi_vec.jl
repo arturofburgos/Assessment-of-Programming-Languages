@@ -35,3 +35,4 @@ R = multivec(A,B,R);
 println("\n")
 
 @time @CPUtime multivec(A,B,R)
+# Test done!

@@ -7,7 +7,7 @@ program mtx_multi_loop_test
 
 
     implicit none !To avoid variable definition problems, checking if they are correctly defined
-    real, DIMENSION(1500,1500) :: mtx1, mtx2, mtx3
+    real, DIMENSION(5000,5000) :: mtx1, mtx2, mtx3
     DOUBLE PRECISION :: start, finish
     
     call random_number(mtx1)
@@ -21,7 +21,9 @@ program mtx_multi_loop_test
     call cpu_time(finish)
 
 
+
     write(*,'(A/)') 
-    print '("Elapsed time is: ",f6.5," seconds")', finish - start
+    print '("Elapsed time is: ",f8.5," seconds")', finish - start
+    !print '("Elapsed time is: ",f6.5," seconds")', finish - start
 
 end program mtx_multi_loop_test

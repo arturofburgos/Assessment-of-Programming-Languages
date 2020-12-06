@@ -28,3 +28,5 @@ endfunction
 tic
 R = multi_vec(A,B);
 toc
+
+# Test Done!
