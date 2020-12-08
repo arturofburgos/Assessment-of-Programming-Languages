@@ -18,7 +18,7 @@ program fibonacci_ite
     S1 = 0
 
     call cpu_time(start1)
-    do i = 1,45
+    do i = 1,40
 
         A = S1
         S1 = A + B
@@ -45,7 +45,7 @@ program fibonacci_ite
     !print*, C !--> Just to be more clear
 
     call cpu_time(start2)
-    do i = 1,45
+    do i = 1,40
 
         C(0) = S2
         S2 = sum(C)

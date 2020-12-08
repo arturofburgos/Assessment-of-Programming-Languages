@@ -5,7 +5,7 @@ program fibonacci_recur
 
 
     call cpu_time(start)
-    n1 = fibonacci_recursive(10)
+    n1 = fibonacci_recursive(40)
     call cpu_time(finish)
 
 
