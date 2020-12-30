@@ -17,7 +17,7 @@ println("\n")
 Fbn = 0
 
 ##############################
-# Variable iterative fibonacci  --> Worse performance, why?
+# Variable recursive fibonacci  --> Worse performance, why?
 ##############################
 
 function recurfibonacci(k)
