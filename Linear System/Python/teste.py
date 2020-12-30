@@ -14,7 +14,7 @@ np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
 
-n = 300
+n = 9
 K = np.sqrt(n)
 k = int(K)
 
@@ -65,68 +65,6 @@ print(b)
 print('\n')
 
 
+X = La.inv(a).dot(b)
 
-def linearsystem(coeff,resul,size):
-
-    # Initial x_k and x_k1 value
-
-    x_k = np.zeros(size)
-    x_k1 = np.ones(size)
-
-    # Here I set the tolerance
-    tolerance = 1e-9
-    # Here I set the iterations
-    ite = 0
-  
-
-    # Here I set the error based in the Infinite norm  
-    erro = La.norm((x_k1 - x_k),np.inf)
-    #erro = (x_k1 - x_k)/x_k1
-
-
-    while (erro > tolerance): #
-        for i in range(0,size):
-        
-            x_k1[i] = resul[i]
-
-            for j in range(0,n):
-                if j!=i:
-                    x_k1[i] =  x_k1[i] - coeff[i,j]*x_k[j]
-
-
-    
-            x_k1[i] =  x_k1[i]/ coeff[i,i]
-
-
-        #erro = (x_k1 - x_k)/x_k1
-        erro = La.norm((x_k1 - x_k),np.inf)
-
-        x_k = x_k1.copy()
-        #x_k[:] = x_k1[:] # -> the same as above
-
-        ite = ite + 1
-
-    
-
-    print('The number of iterations is: ')
-    print(ite)
-    print('\n')
-
-    print('Note that now the error is not an array anymore, but is normalized :')
-    print(erro)
-    print('\n')
-
-    return x_k1
-
-
-t_initial = time.time()
-res = linearsystem(a,b,n)
-t_final = time.time()
-
-
-print('The solution is:')
-print(res)
-print('\n')
-
-
-print("\n\n--- %s seconds ---\n" % (t_final - t_initial))
+print(X)
