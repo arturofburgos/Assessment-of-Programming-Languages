@@ -17,7 +17,7 @@ program linear_system
     DOUBLE PRECISION :: erro, tol
     DOUBLE PRECISION, DIMENSION(:), ALLOCATABLE :: x_k, x_k1
 
-    n = 400
+    n = 324
     k = int(SQRT(real(n)))
 
     ALLOCATE (mtx_a(n,n))
