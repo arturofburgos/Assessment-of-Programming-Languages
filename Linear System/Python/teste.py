@@ -49,7 +49,7 @@ for i in range(k):
         b[i] = -150
 
 for i in range(k,n-k):
-    if (i+1)%6 != 0: # (i+1) because in Python we start from 0
+    if (i+1)%k != 0: # (i+1) because in Python we start from 0
         b[i] = 0
     else:
         b[i] = -100
@@ -63,6 +63,8 @@ for i in range(n-k,n):
 print('The result Matrix is:')
 print(b)
 print('\n')
+
+exit()
 
 
 X = La.inv(a).dot(b)

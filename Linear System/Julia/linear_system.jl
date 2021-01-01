@@ -12,8 +12,8 @@ using Statistics
 using LinearAlgebra # Import this module to use the norm function
 using CPUTime
 
-n = 144
-k = Int32(sqrt(144)) 
+n = 324
+k = Int32(sqrt(324)) 
 
 
 # Here I set the A matrix
