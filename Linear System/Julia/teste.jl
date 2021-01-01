@@ -19,23 +19,25 @@ for i = 1:n
 
       a[i,j] = -4
     
-    elseif i == j-3 | i == j+3
+      elseif i == (j-3) || i == (j+3)
 
-      a[i,j] = 1
+        a[i,j] = 1
 
-    elseif (mod(i,3) != 0 & j == i+1) 
+      elseif (mod(i,3) != 0 && j == (i+1)) 
 
-      a[i,j] = 1
+        a[i,j] = 1
 
-    elseif (mod(i,3) != 1 & j == i - 1)
+      elseif (mod(i,3) != 1 && j == (i-1))
 
-      a[i,j] = 1
+        a[i,j] = 1
     
-    end
+      end
   end
 end
 
 println("The A matrix is: ")
+
+println(a)
 
 for i = 1:n
 

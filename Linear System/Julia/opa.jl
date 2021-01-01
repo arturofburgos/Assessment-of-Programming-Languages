@@ -12,23 +12,39 @@ using Statistics
 using LinearAlgebra # Import this module to use the norm function
 using CPUTime
 
-n = 9
-k = Int32(sqrt(9)) 
+n = 144
+k = Int32(sqrt(144)) 
 
 
 # Here I set the A matrix
 
-a = [
--4 1 0 1 0 0 0 0 0 ;
-1 -4 1 0 1 0 0 0 0 ;
-0 1 -4 0 0 1 0 0 0 ;
-1 0 0 -4 1 0 1 0 0 ;
-0 1 0 1 -4 1 0 1 0 ;
-0 0 1 0 1 -4 0 0 1 ;
-0 0 0 1 0 0 -4 1 0 ;
-0 0 0 0 1 0 1 -4 1 ;
-0 0 0 0 0 1 0 1 -4 ;
-]
+
+
+a = rand([0,0],(n,n))
+
+for i = 1:n
+  for j = 1:n
+    if i==j
+
+      a[i,j] = -4
+    
+      elseif i == (j-3) || i == (j+3)
+
+        a[i,j] = 1
+
+      elseif (mod(i,3) != 0 && j == (i+1)) 
+
+        a[i,j] = 1
+
+      elseif (mod(i,3) != 1 && j == (i-1))
+
+        a[i,j] = 1
+    
+      end
+  end
+end
+
+
 
 # Here I set the b matrix   
 
@@ -77,58 +93,65 @@ println("\n")
 println("The B matrix is: ")
 println(b)
 
+R = zeros(n)
 
-# Initial x_k and x_k1 value
-x_k = zeros(n)
+function  linearsystem(a,b,x_k1)
+  # Initial x_k and x_k1 value
+  x_k = zeros(n)
 
-x_k1 = ones(n)
+  x_k1 = ones(n)
 
-# Here I set the tolerance
+  # Here I set the tolerance
 
-e = 1e-9
-
-
-
-# Here I set the iterations
-ite = 0
-
-
-# Here I set the error based in the Infinite norm
-#erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same result? 
-erro = norm((x_k1 - x_k),Inf)
+  e = 1e-9
 
 
 
-while ite < 60
-  for i = 1:n
-    
-    global x_k1[i] = b[i]
-    
-    for j = 1:n
-      if j != i
+  # Here I set the iterations 
+  ite = 0
 
-        global x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
-    
-      end
-    end
-    
-    
-  
-    global x_k1[i] = x_k1[i]/a[i,i]
-  
-  end
- 
+
+  # Here I set the error based in the Infinite norm
+  #erro = (x_k1 - x_k)/x_k1; # ---> Why the relative error has the same result? 
   global erro = norm((x_k1 - x_k),Inf)
-  global x_k[:] = x_k1[:]
-
-  global ite = ite + 1
 
 
 
+  while erro>e
+    for i = 1:n
+    
+      global x_k1[i] = b[i]
+    
+      for j = 1:n
+        if j != i
+
+          global x_k1[i] =  x_k1[i] - a[i,j]*x_k[j]
+    
+        end
+      end
+    
+    
+  
+      global x_k1[i] = x_k1[i]/a[i,i]
+  
+    end
+ 
+    global erro = norm((x_k1 - x_k),Inf)
+    global x_k[:] = x_k1[:]
+
+    ite = ite + 1
+
+  end
+
+  return x_k1
 
 end
 
-println(x_k1)
+R = linearsystem(a,b,R);
+println("\n\nThe R Matrix is: \n\n",R)
+println("\n\n")
+
+@time @CPUtime linearsystem(a,b,R)
 
 
 
