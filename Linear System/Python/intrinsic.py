@@ -14,7 +14,7 @@ np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
 
-n = 9
+n = 324
 K = np.sqrt(n)
 k = int(K)
 
@@ -64,9 +64,13 @@ print('The result Matrix is:')
 print(b)
 print('\n')
 
-exit()
 
-
+t_initial = time.time()
 X = La.inv(a).dot(b)
 
+t_final = time.time()
+
+
 print(X)
+
+print("\n\n--- %s seconds ---\n" % (t_final - t_initial))
