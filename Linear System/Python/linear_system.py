@@ -15,9 +15,13 @@ np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
 
-n = 324
+n = 144
 K = np.sqrt(n)
 k = int(K)
+
+#################
+# aX = b
+#################
 
 
 # Here I set the Matrix
@@ -50,7 +54,7 @@ for i in range(k):
         b[i] = -150
 
 for i in range(k,n-k):
-    if (i+1)%6 != 0: # (i+1) because in Python we start from 0
+    if (i+1)%k != 0: # (i+1) because in Python we start from 0
         b[i] = 0
     else:
         b[i] = -100
@@ -134,13 +138,15 @@ print("\n\n--- %s seconds ---\n" % (t_final - t_initial))
 
 # PLOT OF THE MATRIX
 
+
+
 def samplemat(dims,bb):
     
 
     aa = np.zeros(dims)
     
     
-    print(bb)
+    #print(bb)
 
     aa = np.reshape(bb,(dims))
 
@@ -150,5 +156,6 @@ def samplemat(dims,bb):
 
 # Display matrix
 plt.matshow(samplemat((k, k),res))
+plt.colorbar()
 
 plt.show()
