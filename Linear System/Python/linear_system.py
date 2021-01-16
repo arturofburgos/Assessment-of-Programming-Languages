@@ -9,6 +9,7 @@
 
 import numpy as np
 from numpy import linalg as La
+import matplotlib.pyplot as plt
 import time
 np.seterr(divide='ignore', invalid='ignore')
 
@@ -130,3 +131,24 @@ print('\n')
 
 
 print("\n\n--- %s seconds ---\n" % (t_final - t_initial))
+
+# PLOT OF THE MATRIX
+
+def samplemat(dims,bb):
+    
+
+    aa = np.zeros(dims)
+    
+    
+    print(bb)
+
+    aa = np.reshape(bb,(dims))
+
+    
+    return aa
+
+
+# Display matrix
+plt.matshow(samplemat((k, k),res))
+
+plt.show()
