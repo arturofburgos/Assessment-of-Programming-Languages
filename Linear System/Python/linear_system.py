@@ -33,9 +33,9 @@ for i in range(n):
     for j in range(n):
         if i == j:
             a[i,j] = -4
-        elif i == j-3 or i ==j+3:
+        elif i == j-k or i ==j+k:
             a[i,j] = 1
-        elif ((i+1) % 3 != 0 and i == j-1) or ((i+1) % 3 != 1 and i == j+1): # (i+1) because in Python we start from 0
+        elif ((i+1) % k != 0 and i == j-1) or ((i+1) % k != 1 and i == j+1): # (i+1) because in Python we start from 0
             a[i,j] = 1
 
 
