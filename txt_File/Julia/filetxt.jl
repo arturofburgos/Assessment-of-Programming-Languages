@@ -10,7 +10,7 @@ using Printf # Just the same as import a module
 using Statistics
 using CPUTime
 
-x = collect(1:1:1000000)
+x = collect(1:1:10000)
 
 y = cos.(x)
 
@@ -18,7 +18,7 @@ y = cos.(x)
 
 #println(y)
 
-
+t1 = time_ns()
 @elapsed open("teste.txt","w") do io
 
     for i in x
@@ -30,8 +30,10 @@ y = cos.(x)
     end
     
 end
+t2 = time_ns()
+timeo = (t2-t1)/1.0e9
 
-
+println(timeo)
 
 
 

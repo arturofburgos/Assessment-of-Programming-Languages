@@ -12,7 +12,7 @@
 import numpy  
 import time
 
-x = numpy.arange(1,1000000,1)
+x = numpy.arange(1,10000,1)
 X = str(x)
 #print(x)
 
