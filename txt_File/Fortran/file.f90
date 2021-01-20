@@ -10,31 +10,26 @@ program file
 
     implicit none !To avoid variable definition problems, checking if they are correctly defined
     integer :: i
-    real, DIMENSION(100000) :: x,y
+    real, DIMENSION(1000000) :: x,y
     DOUBLE PRECISION :: start, finish
     
 
 
-    print *, 'The random matrix is : '
+    
 
-    do i=1,100000
+    do i=1,1000000
         x(i) = i
     end do
 
 
-    do i=1,100000
+    do i=1,1000000
 
         y(i)=cos(real(i))
     
     end do
   
 
-    !write(*,'(A/)') 
-    !print *,'the mtx(1,1,1) is: ', x
-    !write(*,'(A/)') 
-    !write(*,'(A/)') 
-    !print *,'the mtx(1,1,2) is: ', y
-    !write(*,'(//A/)')
+    
 
 
     call cpu_time(start)
