@@ -10,15 +10,16 @@ using Printf # Just the same as import a module
 using Statistics
 using CPUTime
 
-x = collect(1:10:100)
+x = collect(1:1:1000000)
 
 y = cos.(x)
 
-println(x)
+#println(x)
 
-println(y)
+#println(y)
 
-open("teste.txt","w") do io
+
+@elapsed open("teste.txt","w") do io
 
     for i in x
         println(io,i)
@@ -29,6 +30,7 @@ open("teste.txt","w") do io
     end
     
 end
+
 
 
 
