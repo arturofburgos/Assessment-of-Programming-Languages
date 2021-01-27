@@ -19,7 +19,9 @@ print('\n')
 print('The element A[1][1][1] of the matrix is ', A[0][0][0])
 print('The element A[1][1][2] of the matrix is ', A[0][0][1])
 print('The element A[1][1][3] of the matrix is ', A[0][0][2])
-print('The element A[n][n][1] of the matrix is ', A[2][2][0])
+print('The element A[1][2][1] of the matrix is ', A[0][1][0])
+print('The element A[1][2][2] of the matrix is ', A[0][1][1])
+print('The element A[1][2][3] of the matrix is ', A[0][1][2])
 print('The element A[n][n][2] of the matrix is ', A[2][2][1])
 print('The element A[n][n][3] of the matrix is ', A[2][2][2])# Here I certified that this number is in the right
 # position according to the matrix A
