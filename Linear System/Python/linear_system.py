@@ -15,7 +15,7 @@ np.seterr(divide='ignore', invalid='ignore')
 
 print('\n')
 
-n = 625
+n = 9
 K = np.sqrt(n)
 k = int(K)
 
@@ -94,7 +94,7 @@ def linearsystem(coeff,resul,size):
         
             x_k1[i] = resul[i]
 
-            for j in range(0,n):
+            for j in range(0,size):
                 if j!=i:
                     x_k1[i] =  x_k1[i] - coeff[i,j]*x_k[j]
 
