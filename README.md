@@ -1,4 +1,4 @@
-# Assessment of Programming Languages for Numerical
+# Assessment of Programming Languages
 Establishing efficiency evaluations and comparisons of different programming languages is not a trivial task.
 
 The comparisons proposed in the present work address routines usually applied in CFD algorithms, i.e. solving system of linear equations, and changing vector element positions. The tests are Copying Arrays, Matrix Multiplication, Fibonacci's Sequence and solve a Linear System.
